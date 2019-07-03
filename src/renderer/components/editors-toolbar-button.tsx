@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Button } from '@blueprintjs/core';
-import { MosaicWindowContext } from 'react-mosaic-component';
+import { MosaicContext } from 'react-mosaic-component';
 
 import { DocsDemoPage, MosaicId } from '../../interfaces';
 import { AppState } from '../state';
@@ -12,8 +12,7 @@ export interface ToolbarButtonProps {
 }
 
 export class MaximizeButton extends React.PureComponent<ToolbarButtonProps> {
-  public static contextTypes = MosaicWindowContext;
-  public context: MosaicWindowContext<MosaicId>;
+  public context: MosaicContext<MosaicId>;
 
   constructor(props: ToolbarButtonProps) {
     super(props);
@@ -36,13 +35,14 @@ export class MaximizeButton extends React.PureComponent<ToolbarButtonProps> {
    */
   public expand() {
     const path = this.context.mosaicWindowActions.getPath();
-    return this.context.mosaicActions.expand(path);
+    // return this.context.mosaicActions.expand(path);
+    return this.context.mosaicWindowActions.;
   }
 }
 
 export class RemoveButton extends React.PureComponent<ToolbarButtonProps> {
   public static contextTypes = MosaicWindowContext;
-  public context: MosaicWindowContext<MosaicId>;
+  public context: MosaicWindowContext;
 
   constructor(props: ToolbarButtonProps) {
     super(props);
